@@ -4,7 +4,7 @@ import ArtistComponent from "./Artist";
 export default function RecommendationsComponent({ artists, username }) {
     return (
         <div>
-            <h2 className="title">Recommendations for {username}</h2>
+            <h1 className="title">Recommendations for {username}</h1>
             <p className="subtitle">
                 Thank you for using my service! If you have any suggestions,
                 please contact me on{" "}

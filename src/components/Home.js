@@ -53,7 +53,7 @@ export default function HomeComponent({ code }) {
     }, [accessToken]);
 
     return (
-        <div className="container">
+        <div className="px-8 py-4">
             {loaded ? (
                 <RecommendationsComponent
                     username={username}

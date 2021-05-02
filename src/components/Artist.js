@@ -2,11 +2,11 @@ import React from "react";
 
 export default function ArtistComponent({ artist }) {
     return (
-        <div className="artist-container">
+        <div>
             <a href={artist.external_urls.spotify}>
                 <img
-                    className="artist-image"
                     alt=""
+                    className="artist-image"
                     src={artist.images[0].url}
                 ></img>
             </a>

@@ -1,186 +1,92 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
 body {
     margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
-        "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Arial",
-        "Helvetica Neue", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
 
-.fa-icon {
-    padding-right: 8px;
-}
-
-.btn {
-    border: none;
-    padding: 15px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 10px;
-    border-radius: 12px;
-
-    transition: 100ms;
-}
-
-.btn-primary {
-    background-color: #04aa6d;
-    color: white;
-}
-
-.btn-primary:hover {
-    background-color: #008051;
-}
-
-.btn-github {
-    background-color: #6a737d;
-    color: white;
-}
-
-.btn-github:hover {
-    background-color: #444d56;
-}
-
-.container {
-    width: 80%;
-    margin: 0 0 10% 10%;
-    margin-top: 10px;
-}
-
+/*
+ * Text
+ */
 .title {
-    font-size: x-large;
+    @apply font-semibold text-lg dark:text-white;
 }
 
 .subtitle {
-    margin: 0 0 20px 0;
-    font-size: medium;
+    @apply font-medium text-gray-800 dark:text-gray-300;
 }
 
-.center-container {
-    margin: 0;
-    position: absolute;
-    text-align: center;
-    top: 10%;
-    padding-left: 5%;
-    padding-right: 5%;
-}
-
-.artist-container {
-    display: flex;
-    flex-direction: column;
-    margin-top: 10px;
-}
-
-.artists-container {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-    row-gap: 3px;
-    column-gap: 15px;
-    padding: 0;
-    margin: 0;
-    align-content: center;
-    text-align: center;
-}
-
-.artist-image {
-    object-fit: cover;
-    width: 90px;
-    height: 90px;
-    border-radius: 15px;
-
-    transition: opacity 150ms;
-}
-
-.artist-image:hover {
-    opacity: 0.75;
-}
-
-.artist-link {
-    margin-top: 5px;
-    color: black;
-
-    overflow: hidden;
-    white-space: normal;
-    text-overflow: ellipsis;
-    width: 90px;
-
-    font-size: smaller;
-    text-decoration: none;
-    font-weight: 600;
-
-    transition: color 150ms;
-}
-
-.artist-link:hover {
-    color: gray;
-}
-
-.artist-genre {
-    margin-top: 5px;
-    width: 90px;
-    color: gray;
-    font-weight: 500;
-    font-size: smaller;
-}
-
-@media only screen and (min-width: 640px) {
-    .artists-container {
-        column-gap: 1vw;
-        align-content: flex-start;
-        align-items: flex-start;
-        justify-content: flex-start;
-        text-align: start;
-    }
-
-    .artist-image {
-        width: 120px;
-        height: 120px;
-    }
-
-    .artist-link {
-        width: 120px;
-    }
-
-    .artist-genre {
-        width: 120px;
-    }
-}
-
-@media only screen and (min-width: 767px) {
-    .artist-image {
-        width: 150px;
-        height: 150px;
-    }
-
-    .artist-link {
-        width: 150px;
-    }
-
-    .artist-genre {
-        width: 150px;
-    }
-
-    .center-container {
-        margin: 0;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        -ms-transform: translate(-50%, -50%);
-        transform: translate(-50%, -50%);
-        text-align: center;
-    }
-}
-
+/*
+ * Plain-text links
+ */
 .link {
-    text-decoration: none;
-    color: blue;
-
-    transition: ease-in-out;
-    transition-delay: 50ms;
+    @apply text-blue-500;
+    transition: all 150ms;
 }
 
 .link:hover {
-    color: darkblue;
+    @apply text-blue-600;
+}
+
+/*
+ * Buttons
+ */
+.button {
+    @apply text-white bg-gray-500 hover:bg-gray-600 dark:bg-gray-600 dark:hover:bg-gray-700 py-2 px-4 rounded;
+    transition: all 150ms;
+}
+
+.button-green {
+    @apply text-white bg-green-500 hover:bg-green-600 py-2 px-4 rounded;
+    transition: all 150ms;
+}
+
+/*
+ * Containers
+ */
+.buttons-container {
+    @apply grid grid-flow-row auto-rows-max text-center gap-2 md:grid-flow-col md:auto-cols-max;
+}
+
+.center-container {
+    @apply p-4 flex flex-col h-screen space-y-4 text-center justify-center items-center;
+}
+
+.artists-container {
+    @apply mt-4 grid grid-flow-row grid-cols-2 md:grid-cols-7 gap-4 place-items-center md:place-items-start;
+}
+
+/*
+ * Artist components
+ */
+.artist-image {
+    @apply w-36 h-36 rounded-xl shadow-sm object-cover;
+    transition: all 150ms;
+}
+
+.artist-image:hover {
+    opacity: 0.65;
+}
+
+.artist-link {
+    @apply dark:text-gray-200;
+    transition: all 150ms;
+}
+
+.artist-link:hover {
+    @apply text-gray-600 dark:text-gray-400;
+}
+
+.artist-genre {
+    @apply text-gray-800 dark:text-gray-400;
+}
+
+/*
+ * Misc
+ */
+.fa-icon {
+    @apply mr-2;
 }

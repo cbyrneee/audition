@@ -1,5 +1,5 @@
-import LoginComponent from "./Login";
-import HomeComponent from "./Home";
+import LoginComponent from "./components/Login";
+import HomeComponent from "./components/Home";
 
 const code = new URLSearchParams(window.location.search).get("code");
 
