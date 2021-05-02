@@ -7,8 +7,8 @@ export default function LoginComponent() {
             <h1>Welcome to Audition</h1>
 
             <p className="subtitle">
-                Audition needs access to your Spotify account to recommend
-                artists. Don't worry, we won't do anything bad.
+                Audition needs access to your Spotify account to recommend new
+                artists
             </p>
 
             <a
