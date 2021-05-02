@@ -16,7 +16,7 @@ export default function LoginComponent() {
             <div>
                 <a
                     className="btn btn-primary"
-                    href={`https://accounts.spotify.com/authorize?client_id=${SPOTIFY_CLIENT_ID}&response_type=code&redirect_uri=${SPOTIFY_REDIRECT_URI}&scope=user-read-email%20user-read-private%20user-top-read&show_dialog=true`}
+                    href={`https://accounts.spotify.com/authorize?client_id=${SPOTIFY_CLIENT_ID}&response_type=code&redirect_uri=${SPOTIFY_REDIRECT_URI}&scope=user-read-email%20user-read-private%20user-top-read`}
                 >
                     <FontAwesomeIcon className="fa-icon" icon={faSpotify} />
                     <span>Login with Spotify</span>
