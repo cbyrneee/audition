@@ -24,9 +24,14 @@ export default function HomeComponent({ code }) {
                 await spotifyAPI.getMyTopArtists()
             ).body.items.map((item) => item.id);
 
+            // We take 5 random artists because the Spotify API doesn't allow us to submit more than that
+            const selectedArtists = topArtists
+                .sort(() => 0.5 - Math.random())
+                .slice(0, 5);
+
             const recommendations = await spotifyAPI.getRecommendations({
                 min_energy: 0.0,
-                seed_artists: topArtists.slice(0, 5),
+                seed_artists: selectedArtists,
                 min_popularity: 0.0,
             });
 
