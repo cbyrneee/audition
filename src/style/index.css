@@ -9,12 +9,12 @@ body {
 
 .btn {
     border: none;
-    padding: 20px;
+    padding: 15px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    margin: 4px 2px;
+    margin: 4px 10px;
     border-radius: 12px;
 
     transition: 100ms;
@@ -27,6 +27,15 @@ body {
 
 .btn-primary:hover {
     background-color: #008051;
+}
+
+.btn-github {
+    background-color: #6a737d;
+    color: white;
+}
+
+.btn-github:hover {
+    background-color: #444d56;
 }
 
 .container {
