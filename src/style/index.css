@@ -52,7 +52,7 @@ body {
 }
 
 .center-container {
-    @apply p-4 flex flex-col h-screen space-y-4 text-center justify-center items-center;
+    @apply p-4 mt-10 md:mt-0 flex flex-col md:h-screen space-y-4 text-center justify-center items-center;
 }
 
 .artists-container {
