@@ -1,37 +1,36 @@
 import { useEffect, useState } from "react";
+import { API_URL } from "../constants";
 const c = require("centra");
 
 export default function useSpotifyAuth(code) {
     const [accessToken, setAccessToken] = useState();
 
     useEffect(() => {
-        c(
-            new URL("https://audition-serverless.vercel.app/api/v1/login"),
-            "POST"
-        )
-            .body(
-                {
-                    code: code,
-                },
-                "json"
-            )
-            .send()
-            .then((res) => {
-                res.json()
-                    .then((data) => {
-                        setAccessToken(data.accessToken);
-                    })
-                    .catch((error) => {
-                        console.log(error);
-                        window.location = "/";
-                    });
-
+        async function fetchToken() {
+            try {
+                // Remove the code query
                 window.history.pushState({}, null, "/");
-            })
-            .catch((error) => {
-                console.log(error);
+
+                const request = c(
+                    new URL(`${API_URL}/api/v1/login`),
+                    "POST"
+                ).body(
+                    {
+                        code: code,
+                    },
+                    "json"
+                );
+
+                const response = await request.send();
+                const json = await response.json();
+
+                setAccessToken(json.accessToken);
+            } catch (error) {
                 window.location = "/";
-            });
+            }
+        }
+
+        fetchToken();
     }, [code]);
 
     return accessToken;
