@@ -16,7 +16,7 @@ export default function HomeComponent({ code }) {
     const accessToken = useSpotifyAuth(code);
 
     useEffect(() => {
-        async function getData() {
+        const getData = async () => {
             if (!accessToken) return;
             spotifyAPI.setAccessToken(accessToken);
 
@@ -30,16 +30,20 @@ export default function HomeComponent({ code }) {
                 min_popularity: 0.0,
             });
 
-            const recommendedArtists = await spotifyAPI.getArtists(
-                recommendations.body.tracks.map((track) => track.artists[0].id)
-            );
+            const recommendedArtists = await spotifyAPI.getArtists([
+                ...new Set(
+                    recommendations.body.tracks.map(
+                        (track) => track.artists[0].id
+                    )
+                ),
+            ]);
 
             const me = (await spotifyAPI.getMe()).body;
             setUsername(me.display_name || "you");
 
             setRecommendedArtists(recommendedArtists.body.artists);
             setLoaded(true);
-        }
+        };
 
         getData();
     }, [accessToken]);
