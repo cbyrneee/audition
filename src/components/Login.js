@@ -13,7 +13,7 @@ export default function LoginComponent() {
 
             <a
                 className="btn btn-primary"
-                href={`https://accounts.spotify.com/authorize?client_id=${SPOTIFY_CLIENT_ID}&response_type=code&redirect_uri=${SPOTIFY_REDIRECT_URI}&scope=user-read-email%20user-read-private%20user-top-read`}
+                href={`https://accounts.spotify.com/authorize?client_id=${SPOTIFY_CLIENT_ID}&response_type=code&redirect_uri=${SPOTIFY_REDIRECT_URI}&scope=user-read-email%20user-read-private%20user-top-read&show_dialog=true`}
             >
                 Login with Spotify
             </a>
