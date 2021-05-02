@@ -6,7 +6,7 @@ export default function useSpotifyAuth(code) {
     const [accessToken, setAccessToken] = useState();
 
     useEffect(() => {
-        async function fetchToken() {
+        const fetchToken = async () => {
             try {
                 // Remove the code query
                 window.history.pushState({}, null, "/");
@@ -28,7 +28,7 @@ export default function useSpotifyAuth(code) {
             } catch (error) {
                 window.location = "/";
             }
-        }
+        };
 
         fetchToken();
     }, [code]);
