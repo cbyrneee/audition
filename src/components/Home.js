@@ -40,7 +40,6 @@ export default function HomeComponent({ code }) {
 
             const me = (await spotifyAPI.getMe()).body;
             setUsername(me.display_name || "you");
-
             setRecommendedArtists(recommendedArtists.body.artists);
             setLoaded(true);
         };

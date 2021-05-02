@@ -1,7 +1,7 @@
 body {
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
-        "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+        "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Arial",
         "Helvetica Neue", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -48,8 +48,13 @@ body {
     margin-top: 10px;
 }
 
+.title {
+    font-size: x-large;
+}
+
 .subtitle {
     margin: 0 0 20px 0;
+    font-size: medium;
 }
 
 .center-container {
@@ -61,7 +66,102 @@ body {
     padding-right: 5%;
 }
 
-@media only screen and (min-width: 768px) {
+.artist-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+.artists-container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    row-gap: 3px;
+    column-gap: 15px;
+    padding: 0;
+    margin: 0;
+    align-content: center;
+    text-align: center;
+}
+
+.artist-image {
+    object-fit: cover;
+    width: 90px;
+    height: 90px;
+    border-radius: 15px;
+
+    transition: opacity 150ms;
+}
+
+.artist-image:hover {
+    opacity: 0.75;
+}
+
+.artist-link {
+    margin-top: 5px;
+    color: black;
+
+    overflow: hidden;
+    white-space: normal;
+    text-overflow: ellipsis;
+    width: 90px;
+
+    font-size: smaller;
+    text-decoration: none;
+    font-weight: 600;
+
+    transition: color 150ms;
+}
+
+.artist-link:hover {
+    color: gray;
+}
+
+.artist-genre {
+    margin-top: 5px;
+    width: 90px;
+    color: gray;
+    font-weight: 500;
+    font-size: smaller;
+}
+
+@media only screen and (min-width: 640px) {
+    .artists-container {
+        column-gap: 1vw;
+        align-content: flex-start;
+        align-items: flex-start;
+        justify-content: flex-start;
+        text-align: start;
+    }
+
+    .artist-image {
+        width: 120px;
+        height: 120px;
+    }
+
+    .artist-link {
+        width: 120px;
+    }
+
+    .artist-genre {
+        width: 120px;
+    }
+}
+
+@media only screen and (min-width: 767px) {
+    .artist-image {
+        width: 150px;
+        height: 150px;
+    }
+
+    .artist-link {
+        width: 150px;
+    }
+
+    .artist-genre {
+        width: 150px;
+    }
+
     .center-container {
         margin: 0;
         position: absolute;
@@ -71,35 +171,6 @@ body {
         transform: translate(-50%, -50%);
         text-align: center;
     }
-}
-
-.artist-container {
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    margin-bottom: 5px;
-}
-
-.artists-container {
-    margin-top: 25px;
-}
-
-.artist-image {
-    width: 32px;
-    height: 32px;
-    border-radius: 16px;
-    margin-right: 10px;
-}
-
-.artist-link {
-    text-decoration: none;
-    color: black;
-
-    transition-delay: 100ms;
-}
-
-.artist-link:hover {
-    color: gray;
 }
 
 .link {
