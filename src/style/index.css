@@ -7,6 +7,10 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
+.fa-icon {
+    padding-right: 8px;
+}
+
 .btn {
     border: none;
     padding: 15px;
@@ -51,11 +55,22 @@ body {
 .center-container {
     margin: 0;
     position: absolute;
-    top: 50%;
-    left: 50%;
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
     text-align: center;
+    top: 10%;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+@media only screen and (min-width: 768px) {
+    .center-container {
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
 }
 
 .artist-container {
