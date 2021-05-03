@@ -2,7 +2,7 @@ import React from "react";
 
 export default function ArtistComponent({ artist }) {
     return (
-        <div>
+        <div className="artist-component">
             <a href={artist.external_urls.spotify}>
                 <img
                     alt=""

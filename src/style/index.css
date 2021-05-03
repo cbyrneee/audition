@@ -56,12 +56,16 @@ body {
 }
 
 .artists-container {
-    @apply mt-4 grid grid-flow-row grid-cols-2 md:grid-cols-7 gap-4 place-items-center md:place-items-start;
+    @apply mt-4 flex flex-row flex-wrap gap-4 place-items-center md:place-items-start;
 }
 
 /*
  * Artist components
  */
+.artist-component {
+    @apply w-36 flex-1;
+}
+
 .artist-image {
     @apply w-36 h-36 rounded-xl shadow-sm object-cover;
     transition: all 150ms;
