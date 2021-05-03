@@ -72,8 +72,10 @@ body {
 }
 
 .artist-link {
-    @apply dark:text-gray-200;
     transition: all 150ms;
+    display: block;
+
+    @apply w-36 mt-2 dark:text-gray-200 truncate;
 }
 
 .artist-link:hover {
@@ -81,7 +83,9 @@ body {
 }
 
 .artist-genre {
-    @apply text-gray-800 dark:text-gray-400;
+    display: block;
+
+    @apply w-36 text-gray-800 dark:text-gray-400 truncate;
 }
 
 /*
