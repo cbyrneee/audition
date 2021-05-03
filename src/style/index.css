@@ -56,14 +56,14 @@ body {
 }
 
 .artists-container {
-    @apply mt-4 flex flex-row flex-wrap gap-4 place-items-center md:place-items-start;
+    @apply mt-4 flex flex-wrap gap-4 items-center md:items-start;
 }
 
 /*
  * Artist components
  */
 .artist-component {
-    @apply w-36 flex-1;
+    @apply w-36;
 }
 
 .artist-image {
