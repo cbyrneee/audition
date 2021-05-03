@@ -1,7 +1,7 @@
 import React from "react";
-import { SPOTIFY_CLIENT_ID, SPOTIFY_REDIRECT_URI } from "../constants";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGithub, faSpotify } from "@fortawesome/free-brands-svg-icons";
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import SpotifyAuthButton from "./buttons/SpotifyAuthButton";
 
 export default function LoginComponent() {
     return (
@@ -16,13 +16,7 @@ export default function LoginComponent() {
             </div>
 
             <div className="buttons-container">
-                <a
-                    className="button-green"
-                    href={`https://accounts.spotify.com/authorize?client_id=${SPOTIFY_CLIENT_ID}&response_type=code&redirect_uri=${SPOTIFY_REDIRECT_URI}&scope=user-read-email%20user-read-private%20user-top-read`}
-                >
-                    <FontAwesomeIcon className="fa-icon" icon={faSpotify} />
-                    <span>Login with Spotify</span>
-                </a>
+                <SpotifyAuthButton text={"Login with Spotify"} />
                 <a
                     className="button"
                     href={"https://github.com/dreamhopping/audition"}
