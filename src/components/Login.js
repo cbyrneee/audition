@@ -19,7 +19,7 @@ export default function LoginComponent() {
                 <SpotifyAuthButton text={"Login with Spotify"} />
                 <a
                     className="button"
-                    href={"https://github.com/dreamhopping/audition"}
+                    href={"https://github.com/cbyrneee/Audition"}
                 >
                     <FontAwesomeIcon className="fa-icon" icon={faGithub} />
                     <span>View source on GitHub</span>

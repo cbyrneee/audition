@@ -13,7 +13,7 @@ export default function RecommendationsComponent({ artists, username }) {
                         suggestions, please contact me on{" "}
                         <a
                             className="link"
-                            href="https://twitter.com/dreamhopping"
+                            href="https://twitter.com/cbyrnedev"
                         >
                             Twitter
                         </a>
