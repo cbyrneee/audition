@@ -9,11 +9,17 @@ const spotifyAPI = new SpotifyAPI({
     clientId: SPOTIFY_CLIENT_ID,
 });
 
-export default function HomeComponent({ code }) {
+interface Props {
+    code: string;
+}
+
+export default function HomeComponent(props: Props) {
     const [loaded, setLoaded] = useState(false);
     const [username, setUsername] = useState("");
-    const [recommendedArtists, setRecommendedArtists] = useState([]);
-    const accessToken = useSpotifyAuth(code);
+    const [recommendedArtists, setRecommendedArtists] = useState<
+        SpotifyApi.ArtistObjectFull[]
+    >([]);
+    const accessToken = useSpotifyAuth(props.code);
 
     useEffect(() => {
         const getData = async () => {

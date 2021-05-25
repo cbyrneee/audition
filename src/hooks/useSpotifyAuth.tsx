@@ -1,15 +1,15 @@
 import { useEffect, useState } from "react";
 import { API_URL } from "../constants";
-const c = require("centra");
+import c from "centra";
 
-export default function useSpotifyAuth(code) {
-    const [accessToken, setAccessToken] = useState();
+export default function useSpotifyAuth(code: string): string {
+    const [accessToken, setAccessToken] = useState("");
 
     useEffect(() => {
         const fetchToken = async () => {
             try {
                 // Remove the code query
-                window.history.pushState({}, null, "/");
+                window.history.pushState({}, "", "/");
 
                 const request = c(
                     new URL(`${API_URL}/api/v1/login`),
@@ -26,7 +26,7 @@ export default function useSpotifyAuth(code) {
 
                 setAccessToken(json.accessToken);
             } catch (error) {
-                window.location = "/";
+                window.location.href = "/";
             }
         };
 
