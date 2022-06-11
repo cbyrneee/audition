@@ -11,7 +11,7 @@ export function ThemeToggle() {
 
   return (
     <>
-      <button onClick={changeTheme} className="text-neutral-700 transition-all hover:opacity-70 dark:text-neutral-400">
+      <button onClick={changeTheme} className="transition-all hover:opacity-70">
         Use {currentTheme === 'dark' ? 'light' : 'dark'} mode
       </button>
     </>
