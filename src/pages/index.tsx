@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import { ThemeToggle } from '../elements/base';
 
 export default function Home() {
   return (
@@ -8,6 +9,7 @@ export default function Home() {
       </Head>
 
       <h1 className="text-4xl font-bold">Hello World</h1>
+      <ThemeToggle />
     </>
   );
 }
