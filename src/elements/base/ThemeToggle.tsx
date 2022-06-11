@@ -1,5 +1,6 @@
 import { useTheme } from 'next-themes';
 import React, { useEffect, useState } from 'react';
+import styles from '../../lib/styles';
 
 export function ThemeToggle() {
   const { theme, setTheme } = useTheme();
@@ -11,7 +12,7 @@ export function ThemeToggle() {
 
   return (
     <>
-      <button onClick={changeTheme} className="transition-all hover:opacity-70">
+      <button onClick={changeTheme} className={styles.press}>
         Use {currentTheme === 'dark' ? 'light' : 'dark'} mode
       </button>
     </>
