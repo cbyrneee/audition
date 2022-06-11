@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import { Header } from '../elements/home';
 import typography from '../lib/typography';
 
 export default function Home() {
@@ -8,9 +9,7 @@ export default function Home() {
         <title>Audition</title>
       </Head>
 
-      <div>
-        <h1 className={typography.title}>Audition</h1>
-      </div>
+      <Header />
     </>
   );
 }
