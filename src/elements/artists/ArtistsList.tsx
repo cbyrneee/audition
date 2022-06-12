@@ -8,7 +8,7 @@ type ArtistListProps = {
 
 export function ArtistsList({ data }: ArtistListProps) {
   return (
-    <div className="grid grid-flow-row gird-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+    <div className="grid grid-flow-row grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
       {data.map((artist) => (
         <Artist {...artist} />
       ))}

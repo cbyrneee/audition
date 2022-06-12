@@ -3,7 +3,7 @@ import React from 'react';
 import useSWRImmutable from 'swr/immutable';
 import { Auth } from '../components/base';
 import { HeaderContainer } from '../components/layout';
-import { ArtistsList } from '../elements/artists';
+import { ArtistsList, Skeleton } from '../elements/artists';
 import typography from '../lib/typography';
 
 async function fetcher<JSON = any>(input: RequestInfo, init?: RequestInit): Promise<JSON> {
@@ -22,7 +22,7 @@ export default function Artists() {
         <h3 className={typography.subtitle}>Here's some recommended artists based on your listening activity.</h3>
       </HeaderContainer>
 
-      {!error && data ? <ArtistsList data={data} /> : <></>}
+      {!error && data && data.length ? <ArtistsList data={data} /> : <Skeleton />}
     </Auth>
   );
 }

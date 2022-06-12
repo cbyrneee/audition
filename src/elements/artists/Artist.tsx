@@ -12,7 +12,7 @@ export default function Artist({ id, genres, name, images }: SpotifyApi.ArtistOb
     <Link href={`https://open.spotify.com/artist/${id}`} passHref>
       <a target="_blank">
         <Card className={`flex flex-col gap-4 items-center text-center transition-all ${styles.press}`}>
-          <Image className="rounded-lg" src={images[0].url} width="100px" height="100px" />
+          <Image className="rounded-lg" src={images[0].url} width="80px" height="80px" />
 
           <div>
             <p className={`${typography.paragraph} line-clamp-1`}>{name}</p>
