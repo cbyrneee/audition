@@ -1,8 +1,13 @@
+import { MoonIcon, SunIcon } from '@heroicons/react/outline';
 import { useTheme } from 'next-themes';
 import React, { useEffect, useState } from 'react';
-import styles from '../../lib/styles';
+import styles from '../../../lib/styles';
 
-export function ThemeToggle() {
+type ThemeToggleProps = {
+  className?: string;
+};
+
+export function ThemeToggle({ className }: ThemeToggleProps) {
   const { theme, setTheme } = useTheme();
   const changeTheme = () => setTheme(currentTheme === 'light' ? 'dark' : 'light');
 
@@ -11,10 +16,8 @@ export function ThemeToggle() {
   useEffect(() => setCurrentTheme(theme), [theme, currentTheme]);
 
   return (
-    <>
-      <button onClick={changeTheme} className={styles.press}>
-        Use {currentTheme === 'dark' ? 'light' : 'dark'} mode
-      </button>
-    </>
+    <button onClick={changeTheme} className={`${styles.press} ${className}`}>
+      {currentTheme === 'dark' ? <SunIcon className="w-5 h-5" /> : <MoonIcon className="w-5 h-5" />}
+    </button>
   );
 }

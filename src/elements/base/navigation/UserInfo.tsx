@@ -6,7 +6,11 @@ import Image from 'next/image';
 import typography from '../../../lib/typography';
 import styles from '../../../lib/styles';
 
-export default function UserInfo() {
+type UserInfoProps = {
+  className?: string;
+};
+
+export default function UserInfo({ className }: UserInfoProps) {
   const { data } = useSession();
 
   if (!data?.user) {
@@ -14,18 +18,16 @@ export default function UserInfo() {
   }
 
   return (
-    <Menu as="div" className="relative inline-block text-left">
-      <div>
-        <Menu.Button
-          className={`inline-flex items-center w-full justify-center rounded-md p-4 py-2 ${typography.paragraph} ${styles.press}`}
-        >
-          <div className="flex flex-row items-center gap-2">
-            {data.user.image && <Image className="rounded-full" src={data.user.image} width="24px" height="24px" />}
-            <p>{data.user.name}</p>
-          </div>
-          <ChevronDownIcon className={`ml-2 -mr-1 h-5 w-5`} aria-hidden="true" />
-        </Menu.Button>
-      </div>
+    <Menu as="div" className={`relative inline-block text-left ${className}`}>
+      <Menu.Button
+        className={`flex items-center w-full justify-center rounded-md p-4 py-0 ${typography.paragraph} ${styles.press}`}
+      >
+        <div className="flex flex-row items-center gap-2">
+          {data.user.image && <Image className="rounded-full" src={data.user.image} width="24px" height="24px" />}
+          <p>{data.user.name}</p>
+        </div>
+        <ChevronDownIcon className={`ml-2 -mr-1 h-5 w-5`} aria-hidden="true" />
+      </Menu.Button>
       <Transition
         as={Fragment}
         enter="transition ease-out duration-100"
