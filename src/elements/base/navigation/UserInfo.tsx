@@ -24,7 +24,7 @@ export default function UserInfo({ className }: UserInfoProps) {
       >
         <div className="flex flex-row items-center gap-2">
           {data.user.image && <Image className="rounded-full" src={data.user.image} width="24px" height="24px" />}
-          <p>{data.user.name}</p>
+          <p className="line-clamp-1">{data.user.name}</p>
         </div>
         <ChevronDownIcon className={`ml-2 -mr-1 h-5 w-5`} aria-hidden="true" />
       </Menu.Button>
