@@ -1,7 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { getToken } from 'next-auth/jwt';
 import SpotifyWebApi from 'spotify-web-api-node';
-import { getRandomTopArtists } from '../../lib/spotify';
+import { getArtists, getRandomTopArtists } from '../../lib/spotify';
 
 const secret = process.env.NEXTAUTH_SECRET;
 const clientId = process.env.NEXT_PUBLIC_CLIENT_ID;
@@ -25,8 +25,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       seed_artists: topArtists.map((it) => it.id),
     });
 
-    const artists = recommendations.body.tracks.map((track) => track.artists[0]);
-    return res.status(recommendations.statusCode).json(artists);
+    const ids = recommendations.body.tracks.map((track) => track.artists[0].id);
+    const recommendedArtists = await getArtists(client, ids);
+    return res.status(200).json(recommendedArtists);
   } catch (e) {
     console.error(e);
     return res.status(400).json({ message: 'Bad request' });

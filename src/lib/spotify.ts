@@ -11,7 +11,12 @@ export function getAuthURL() {
 export async function getRandomTopArtists(
   client: SpotifyWebApi,
   limit: number,
-): Promise<SpotifyApi.ArtistObjectFull[]> {
-  const artists = await client.getMyTopArtists();
-  return artists.body.items.sort(() => 0.5 - Math.random()).slice(0, limit);
+): Promise<SpotifyApi.ArtistObjectSimplified[]> {
+  const response = await client.getMyTopArtists();
+  return response.body.items.sort(() => 0.5 - Math.random()).slice(0, limit);
+}
+
+export async function getArtists(client: SpotifyWebApi, ids: string[]): Promise<SpotifyApi.ArtistObjectFull[]> {
+  const response = await client.getArtists(ids);
+  return response.body.artists;
 }
