@@ -10,8 +10,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   const jwt = await getToken({ req, secret });
   const accessToken = jwt?.accessToken;
 
-  console.log(jwt);
-
   if (!accessToken) {
     return res.status(401).json({ message: 'Unauthorized' });
   }
