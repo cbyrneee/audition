@@ -10,7 +10,9 @@ export default function NotFound() {
       <h3 className={typography.subtitle}>Oops! That page could not be found.</h3>
 
       <ButtonGroup className="mt-4">
-        <Button destination={'/'}>Go back</Button>
+        <Button className="bg-blue-400 text-blue-900 dark:bg-blue-500" destination={'/'}>
+          Go back
+        </Button>
       </ButtonGroup>
     </HeaderContainer>
   );

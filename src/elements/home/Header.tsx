@@ -12,6 +12,7 @@ export function Header() {
 
       <ButtonGroup className="mt-4">
         <Button
+          className="bg-green-400 text-green-900 dark:bg-green-500"
           onClick={() => {
             signIn('spotify', { callbackUrl: '/artists' });
           }}
