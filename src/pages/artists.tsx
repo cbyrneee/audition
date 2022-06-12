@@ -1,4 +1,5 @@
 import { useSession } from 'next-auth/react';
+import Head from 'next/head';
 import React from 'react';
 import useSWRImmutable from 'swr/immutable';
 import { Auth } from '../components/base';
@@ -16,13 +17,19 @@ export default function Artists() {
   const { data, error } = useSWRImmutable<SpotifyApi.ArtistObjectFull[]>('/api/artists', fetcher);
 
   return (
-    <Auth>
-      <HeaderContainer>
-        <h1 className={typography.title}>Artists</h1>
-        <h3 className={typography.subtitle}>Here's some recommended artists based on your listening activity.</h3>
-      </HeaderContainer>
+    <>
+      <Head>
+        <title>Audition - Artists</title>
+      </Head>
 
-      {!error && data && data.length ? <ArtistsList data={data} /> : <Skeleton />}
-    </Auth>
+      <Auth>
+        <HeaderContainer>
+          <h1 className={typography.title}>Artists</h1>
+          <h3 className={typography.subtitle}>Here's some recommended artists based on your listening activity.</h3>
+        </HeaderContainer>
+
+        {!error && data && data.length ? <ArtistsList data={data} /> : <Skeleton />}
+      </Auth>
+    </>
   );
 }
