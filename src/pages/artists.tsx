@@ -5,6 +5,7 @@ import useSWRImmutable from 'swr/immutable';
 import { Auth } from '../components/base';
 import { HeaderContainer } from '../components/layout';
 import { ArtistsList, Skeleton } from '../elements/artists';
+import styles from '../lib/styles';
 import typography from '../lib/typography';
 
 async function fetcher<JSON = any>(input: RequestInfo, init?: RequestInit): Promise<JSON> {
@@ -26,6 +27,16 @@ export default function Artists() {
         <HeaderContainer>
           <h1 className={typography.title}>Artists</h1>
           <h3 className={typography.subtitle}>Here's some recommended artists based on your listening activity.</h3>
+
+          <div className="flex mt-4">
+            <a
+              target="_blank"
+              href="https://github.com/cbyrneee/audition"
+              className={`bg-neutral-900 p-2 px-4 rounded-xl ${typography.paragraph} ${styles.press}`}
+            >
+              Got good recommendations? Give us a ⭐️ on GitHub!
+            </a>
+          </div>
         </HeaderContainer>
 
         {!error && data && data.length ? <ArtistsList data={data} /> : <Skeleton />}
