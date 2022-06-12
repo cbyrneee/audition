@@ -13,7 +13,7 @@ export function Header() {
       <ButtonGroup className="mt-4">
         <Button
           onClick={() => {
-            signIn(undefined, {});
+            signIn('spotify', { callbackUrl: '/artists' });
           }}
         >
           Login with Spotify
