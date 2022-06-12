@@ -32,7 +32,7 @@ export default function Artists() {
             <a
               target="_blank"
               href="https://github.com/cbyrneee/audition"
-              className={`bg-neutral-900 p-2 px-4 rounded-xl ${typography.paragraph} ${styles.press}`}
+              className={`bg-neutral-100 dark:bg-neutral-900 p-2 px-4 rounded-xl ${typography.paragraph} ${styles.press}`}
             >
               Got good recommendations? Give us a ⭐️ on GitHub!
             </a>
