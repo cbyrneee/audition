@@ -1,9 +1,9 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import React from 'react';
-import { Card } from '../../components/layout';
-import typography from '../../lib/typography';
-import styles from '../../lib/styles';
+import { Card } from '../../../components/layout';
+import typography from '../../../lib/typography';
+import styles from '../../../lib/styles';
 
 export default function Artist({ id, genres, name, images }: SpotifyApi.ArtistObjectFull) {
   const genre = genres.sort((a, b) => a.length - b.length).at(0) ?? 'Unknown';

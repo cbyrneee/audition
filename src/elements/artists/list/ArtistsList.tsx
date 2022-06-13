@@ -1,4 +1,3 @@
-import { ChartSquareBarIcon } from '@heroicons/react/outline';
 import React from 'react';
 import Artist from './Artist';
 
