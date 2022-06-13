@@ -25,12 +25,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     });
 
     const artistIDs: string[] = [];
-    recommendations.body.tracks
-      .map((track) => track.artists[0].id)
-      .forEach((id) => {
-        if (artistIDs.includes(id)) return;
-        artistIDs.push(id);
-      });
+    recommendations.body.tracks.forEach((track) => {
+      const id = track.artists[0].id;
+      if (!artistIDs.includes(id)) artistIDs.push(id);
+    });
 
     const recommendedArtists = await getArtists(client, artistIDs.slice(0, 20));
     return res.status(200).json(recommendedArtists);
