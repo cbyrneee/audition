@@ -21,10 +21,18 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       min_energy: 0.0,
       min_popularity: 0.0,
       seed_artists: topArtists.map((it) => it.id),
+      limit: 50,
     });
 
-    const ids = recommendations.body.tracks.map((track) => track.artists[0].id);
-    const recommendedArtists = await getArtists(client, ids);
+    const artistIDs: string[] = [];
+    recommendations.body.tracks
+      .map((track) => track.artists[0].id)
+      .forEach((id) => {
+        if (artistIDs.includes(id)) return;
+        artistIDs.push(id);
+      });
+
+    const recommendedArtists = await getArtists(client, artistIDs.slice(0, 20));
     return res.status(200).json(recommendedArtists);
   } catch (e) {
     console.error(e);
